@@ -430,7 +430,7 @@ $1$ is repeated $k$-times.
   Say that a type 2 machine $M$ \textbf{computes} a partial map $f : \NNNN \parto
   \NNNN$ when for every $\alpha \in \NNNN$:
   %
-  if $f(\alpha)$ is defined then~$M$ eventually writes to every output cell, and the output tape equals $f(\alpha)$; if $f(\alpha)$ is not defined, then at least one output cell to which~$M$ never writes to.
+  if $f(\alpha)$ is defined then~$M$ eventually writes to every output cell, and the output tape equals $f(\alpha)$; if $f(\alpha)$ is not defined, then there is at least one output cell which~$M$ never writes to.
 
   A partial map $f : \NNNN \parto \NNNN$ is \textbf{type~2 computable} if it is computed by a type~2 machine.
 \end{definition}
@@ -571,7 +571,7 @@ $\gamma(\code{\seg{\alpha}{m}}) = \gamma(\code{\seg{\alpha}{k}})$.
   \begin{align*}
      A = \big\{ & (a, i, j) \in \NN^{*} \times \NN^{2} \such \\
        &\basicBB{a} \cap \dom{f} \neq \emptyset \land
-        \all{\alpha}{(\basicBB{a} \cap \dom{f})}{
+        \all{\alpha \in (\basicBB{a} \cap \dom{f})}{
           f(\alpha)(i) = j
           }
         \big\}.
@@ -590,7 +590,7 @@ $\gamma(\code{\seg{\alpha}{m}}) = \gamma(\code{\seg{\alpha}{k}})$.
   $\gamma(\code{\cons{i}{a'}}) = j + 1$. Thus, if $(a, i, j) \in
   A$ and $a \sqsubseteq \alpha$ then $\fpr{\gamma}{\alpha}(i) = j$.
   %
-  Let us how that $\fpr{\gamma}{\alpha}(i) = f(\alpha)(i)$ for all
+  Let us show that $\fpr{\gamma}{\alpha}(i) = f(\alpha)(i)$ for all
   $\alpha \in \dom{f}$ and all $i \in \NN$. Because~$f$ is continuous,
   for all $\alpha \in \dom{f}$ and $i \in \NN$ there exists $(a, i, j)
   \in A$ such that $a \sqsubseteq \alpha$ and $f(\alpha)(i) = j$. Now
@@ -834,10 +834,11 @@ Each oracle $\omega$ yields a type 1 and a type 2 model of computation in which 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Hamkin's infinite-time Turing machines}
+\subsection{Hamkins' infinite-time Turing machines}
+
 \label{sec:iitm}
 
-Another model of computation that exceeds the power of Turing machines are Hamkin's \defemph{infinite-time Turing machines}~\sidecite{hamkins00:_infin_turin}. We give here just a brief overview and recommend the cited reference for background reading.
+Another model of computation that exceeds the power of Turing machines are Hamkins' \defemph{infinite-time Turing machines}~\sidecite{hamkins00:_infin_turin}. We give here just a brief overview and recommend the cited reference for background reading.
 
 An infinite-time Turing machine, or just \emph{machine}, is like a Turing
 machine which is allowed to run infinitely long, with the computation steps
@@ -1362,7 +1363,7 @@ provided $x$ does not occur freely in~$e$. We will \emph{not} assume
 $\eta$-reduction unless explicitly stated otherwise.
 
 A sub-expression of the form $(\lam{x}{e_1})\, e_2$ is called a \defemph{$\beta$-redex}.
-If~$e$ contains such a redex, we may replace it by $\subset{e_1}{e_2/x}$ to obtain a new expression~$e'$. We say that we performed a \defemph{$\beta$-reduction} and write
+If~$e$ contains such a redex, we may replace it by $\subst{e_1}{e_2/x}$ to obtain a new expression~$e'$. We say that we performed a \defemph{$\beta$-reduction} and write
 %
 \begin{equation*}
   e \mapsto e'
@@ -1989,9 +1990,9 @@ yields a computable function $q : \NN \to \NN$ such that $\pr{q(x)}{y}
 When Turing machines are replaced with oracle Turing machines, we obtain a variant of $\klone$. More precisely, given any $A \subseteq \NN$, we let $\klone^A$ to be the pca whose underlying set is $\NN$, equipped with the application $\set{m}^A(n) = \xpr^A_m(n)$. Here $\xpr^A_m$ is the $m$-th Turing machine with oracle~$A$.
 
 \subsubsection[\texorpdfstring%
-{Hamkin's intfinite-time pca $\JJ$}%
-{Hamkin's infinite-time pca $\JJ$}%
-]{Hamkin's infinite-time pca $\JJ$}
+{Hamkins' intfinite-time pca $\JJ$}%
+{Hamkins' infinite-time pca $\JJ$}%
+]{Hamkins' infinite-time pca $\JJ$}
 \label{sec:hamkins-pca-oracle}%
 
 We may similarly use infinite-time Turing machines from \cref{sec:iitm} to define a pca $\JJ$ (for ``Joel'') whose underlying set is $\NN$ and whose application is defined by $m \cdot n = \iitm{m}(n)$, where $\iitm{m}$ is the $m$-th infinite-time Turing machine.

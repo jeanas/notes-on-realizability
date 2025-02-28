@@ -212,7 +212,7 @@ of $f : S \to U$ and $g : T \to U$ is the
 assembly
 %
 \begin{equation*}
-  P = (\set{(x,y) \in S \times T \such f\,x = g(y)}, \T{S} \times
+  P = (\set{(x,y) \in S \times T \such f\,x = g\,y}, \T{S} \times
   \T{T}, {\rz[P]})
 \end{equation*}
 %
@@ -706,7 +706,7 @@ are precisely the injective and surjective maps, respectively.
 \begin{proof}
   It is obvious that a morphism $f : S \to T$ is a mono in
   $\AsmA$ if it is mono in $\Set$. Conversely, suppose $f$ is mono in
-  $\AsmA$, and consider maps $g, h : U \to T$ in $\Set$ such that $f
+  $\AsmA$, and consider maps $g, h : U \to S$ in $\Set$ such that $f
   \circ g = f \circ h$. Define the assembly $U = (U, \T{S} \times
   \T{S}, {\rz[U]})$ with the realizability relation
   % 
@@ -765,7 +765,7 @@ the equalizer of the maps $g, h : T \to \nabla \two$, defined by
 \begin{equation*}
   g\,x = 1
   \qquad\text{and}\qquad
-  h(x) =
+  h\,x =
   \begin{cases}
     1 & \text{if $x \in T'$,}\\
     0 & \text{otherwise}.
@@ -781,7 +781,7 @@ recipe~\eqref{eq:asm-equalizer} from
 restriction of $T$ to the subset
 % 
 \begin{equation*}
-  T' = \set{x \in T \such g\,x = h(x)}.
+  T' = \set{x \in T \such g\,x = h\,x}.
 \end{equation*}
 % 
 Since both $\iota : T' \to T$ and $f : S \to
@@ -862,7 +862,7 @@ h : V \to T$ where\sidenote{You should convince yourself
 Every regular epi is isomorphic to one of this form. To see this,
 suppose $f : T \to U$ is a coequalizer of $g, h : U
 \to T$. Let $\equiv$ be the least equivalence relation on~$T$
-such that $g\,x = h(x)$ for all $x \in U$. Then $f$ is isomorphic to
+such that $g\,x = h\,x$ for all $x \in U$. Then $f$ is isomorphic to
 $q : T \to T/{\equiv}$ because $g : T \to
 T/{\equiv}$ is the coequalizer of $g$ and $h$ according to
 \cref{sec:cocartesian-structure}.
@@ -898,7 +898,7 @@ There is another characterization of regular epis which is used often.
   y$, from which we get $i(y) = i(f(x')) = q(x') = [x']$. Since
   $\R{i}\,\R{y} \rz[T/{\equiv}] [x']$ there is $x \in T$ such that
   $\R{i}\,\R{y} \rz[T] x$ and $x \equiv x'$. The element~$x$ is the one
-  we are looking for because $x \equiv x'$ implies $f\,x = f(x') = y$.
+  we are looking for because $x \equiv x'$ implies $f\,x = f\,x' = y$.
 
   Conversely, suppose $\R{i}$ is as in the statement of the
   proposition, and let $\R{f}$ be a realizer for~$f$. To show that $f
@@ -906,7 +906,7 @@ There is another characterization of regular epis which is used often.
   relation $\equiv$ on~$T$ by
   %
   \begin{equation*}
-    x \equiv y \iff f\,x = f(y).
+    x \equiv y \iff f\,x = f\,y.
   \end{equation*}
   %
   It suffices to show that~$f$ is isomorphic to $q : T \to
@@ -950,7 +950,7 @@ In assemblies a realized map $f : S \to T$ factors as
 %
 where $q$ is a regular epi, $b$ is a mono-epi and $i$ is a regular
 mono. Indeed, we may take $U = S/{\equiv}$, where $x
-\equiv y \iff f\,x = f(y)$, and $q : S \to S/{\equiv}$ the
+\equiv y \iff f\,x = f\,y$, and $q : S \to S/{\equiv}$ the
 canonical quotient map. The assembly $V$ is the restriction
 of~$T$ to the subset $V = \set{y \in T \such \some{x}{S}{f\,x =
     y}}$ so that $\T{V} = \T{T}$ and $\R{y} \rz[V] y \liff \R{y} \rz[T] y$
@@ -1006,7 +1006,7 @@ relation~$\equiv'$ on~$S$, and that $i' : V' \to T$ is a subset
 inclusion.
 
 First we show that $\equiv$ and $\equiv'$ coincide. If $x \equiv y$
-then $i'(b'(q'(x))) = f\,x = f(y) = i'(b'(q'(y)))$, and since $i'
+then $i'(b'(q'(x))) = f\,x = f\,y = i'(b'(q'(y)))$, and since $i'
 \circ b'$ is a mono $q'(x) = q'(y)$ and $x \equiv' y$ follows.
 Conversely, if $x \equiv' y$ then $q'(x) = q'(y)$ and $f\,x =
 i'(b'(q'(x))) = i'(b'(q'(y))) = f(y)$, hence $x \equiv y$.
