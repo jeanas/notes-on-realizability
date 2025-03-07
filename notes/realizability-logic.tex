@@ -594,7 +594,7 @@ Recall that a formula $\phi$ is \defemph{decidable}\sidenote{
 
 \begin{proposition}
   \label{prop:decidable-when}
-  A predicate $p \in \Pred{S}$ is decidable if, and only if, there exists
+  A predicate $p \in \Pred{S}$ is decidable if, and only if, it is classical and there exists
   $\R{d} \in \subAtyp{\T{S} \to \ttbool}$ such that, for all $x \in \S{S}$ and $\R{x} \in \T{S}$, if $\R{x} \rz[S] x$ then $\defined{\R{d}\,\R{x}}$ and
   %
   \begin{equation*}
@@ -607,13 +607,13 @@ Recall that a formula $\phi$ is \defemph{decidable}\sidenote{
 \end{proposition}
 
 \begin{proof}
-  If $\R{r} \rz p \lor \lnot p$ then we may take
+  If $\R{r} \rz p \lor \lnot p$ then it is classical by intuitionistic reasoning, and we may take
   %
   \begin{equation*}
     \R{d} = \tpcalam{\R{x}}{\T{S}} \combCase\,(\R{r}\,\R{x})\,\combTrue\,\combFalse.
   \end{equation*}
   %
-  Conversely, suppose $\R{d}$ with the stated property exists. Because a decidable predicate is stable, by \cref{prop:when-stable} there exists $\R{q} \in \subAtyp{\T{S} \to \T{p}}$ such that, if $\R{x} \rz[S] x$ and $p x \neq \emptyset$ then $\R{r}\,\R{x} \rz p x$. Now the realizer
+  Conversely, suppose $p$ is classical and $\R{d}$ with the stated property exists. By \cref{prop:when-stable} there exists $\R{q} \in \subAtyp{\T{S} \to \T{p}}$ such that, if $\R{x} \rz[S] x$ and $p x \neq \emptyset$ then $\R{r}\,\R{x} \rz p x$. Now the realizer
   %
   \begin{equation*}
     \tpcalam{\_}{\unit}
